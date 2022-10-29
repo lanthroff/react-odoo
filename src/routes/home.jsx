@@ -7,7 +7,7 @@ export default function Home() {
     console.log(response);
   }
   async function ping() {
-    const result = await apiPost("/api", { test: "ty" })
+    const result = await apiPost("/api", { age: 12, name: "clément" })
     console.log(result);
   }
   return (

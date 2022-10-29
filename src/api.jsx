@@ -30,7 +30,9 @@ const apiGet = async (url) => {
     const res = await Axios.get(
       `${baseUrl}${url}`,
       {
-        headers: { 'Accept': 'application/json text/html', 'Content-Type': 'application/json' },
+        headers: {
+          'Accept': 'application/json text/html',
+        },
         validateStatus: () => true
         ,
         data: null
@@ -43,12 +45,15 @@ const apiGet = async (url) => {
 
 const apiPost = async (url, body) => {
   try {
-    body.csrf_token = Csrf.value
     const res = await Axios.post(
       `${baseUrl}${url}`,
       body,
       {
-        headers: { 'Accept': 'application/json, text/html', 'Content-Type': 'application/json' },
+        headers: {
+          'Accept': 'application/json, text/html',
+          'Content-Type': 'application/json',
+          'Csrf-Token': Csrf.value
+        },
         validateStatus: () => true
       });
     return res
