@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
-import { apiGet, apiPost } from "../api.jsx";
+import { apiPost } from "../api.jsx";
 
 export default function Login() {
   const [login, setLogin] = useState("");
@@ -55,9 +55,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-      {/* <div className="col-12 d-flex justify-content-around">
-        <button className="btn btn-primary" onClick={handlePost}>TEST</button>
-      </div> */}
     </>
   );
 }

@@ -64,19 +64,61 @@ const apiPost = async (url, body) => {
   }
 }
 
-const apiPostClassic = async (url, body) => {
+const apiDelete = async (url) => {
   try {
-    const params = new URLSearchParams()
-    for (const [key, value] of Object.entries(body)) {
-      params.append(key, value)
-    }
-
-    params.append('csrf_token', Csrf.value)
-    const res = await Axios.post(`${baseUrl}${url}`, params);
+    const res = await Axios.delete(
+      `${baseUrl}${url}`,
+      {
+        headers: {
+          'Accept': 'application/json, text/html',
+          'Csrf-Token': Csrf.value
+        },
+        validateStatus: () => true
+      });
     return res
   } catch (err) {
     return err.response;
   }
 }
 
-export { apiGet, apiPost, apiPostClassic };
+const apiPatch = async (url, body) => {
+  try {
+    const res = await Axios.patch(
+      `${baseUrl}${url}`,
+      body,
+      {
+        headers: {
+          'Accept': 'application/json, text/html',
+          'Content-Type': 'application/json',
+          'Csrf-Token': Csrf.value
+        },
+        validateStatus: () => true
+      });
+    return res
+  } catch (err) {
+    return err.response;
+  }
+}
+
+const apiPut = async (url, body) => {
+  try {
+    const res = await Axios.put(
+      `${baseUrl}${url}`,
+      body,
+      {
+        headers: {
+          'Accept': 'application/json, text/html',
+          'Content-Type': 'application/json',
+          'Csrf-Token': Csrf.value
+        },
+        validateStatus: () => true
+      });
+    return res
+  } catch (err) {
+    console.log("apiPost Error");
+    console.log(err);
+    return err.response$;
+  }
+}
+
+export { apiGet, apiPost, apiDelete, apiPatch, apiPut };
