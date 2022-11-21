@@ -1,21 +1,19 @@
 import { Link } from "react-router-dom";
-import { apiPost } from "../api.jsx";
 
 export default function Home() {
-  async function failUser() {
-    const response = await apiPost("/post", { "marc": "champion" })
-    console.log(response);
-  }
-  async function ping() {
-    const result = await apiPost("/api", { age: 12, name: "clément" })
-    console.log(result);
-  }
   return (
     <>
-      <div className="col-12 d-flex justify-content-around">
-        <Link to="/login">Login</Link>
-        <button className="btn btn-primary" onClick={failUser}>Fail user access</button>
-        <button className="btn btn-primary" onClick={ping}>Ping</button>
+      <div className="col-4 text-center">
+        <h3 className="text-primary">You can login</h3>
+        <h3 className="text-secondary">Using your odoo credentials</h3>
+      </div>
+      <div className="col-4 d-flex justify-content-center align-items-center">
+        <Link to="/login" className="fs-1">Login</Link>
+      </div>
+      <div className="col-4 d-flex justify-content-center align-items-center">
+        <p className="text-secondary">
+          You can then go to your account page and play with the todo list example.
+        </p>
       </div>
     </>)
 }

@@ -106,35 +106,36 @@ export default function Profile() {
       <div className="col-12 d-flex justify-content-around">
         <div>
           <div>
-            <h1 className="text-secondary">{name} (id:{id})</h1>
-            <form onSubmit={createTodo}>
-              <label className="text-primary">Title:
-                <input className="form-control" type="text" value={newTodoName} onChange={(e) => setNewTodoName(e.target.value)} />
-              </label>
-              <br />
-              <label className="text-primary">Content:
-                <textarea className="form-control" type="text" value={newTodoContent} onChange={(e) => setNewTodoContent(e.target.value)} />
-              </label>
-              <br />
-              <div className="w-100 text-center mt-4">
-                <button type="submit" className="btn btn-secondary"><span className="text-primary">CREATE</span></button>
-              </div>
-            </form>
-            <span className="text-success">CREATE</span>
-            <ul>
-              <ul>
-                {todos.map((todo) =>
-                  <ListItem
-                    key={todo.id.toString()}
-                    todo={todo}
-                    edit={editItemHandler}
-                    delete={deleteTodo}
-                    editing={editItem}
-                    nameEditChange={todoNameEditChange}
-                    contentEditChange={todoContentEditChange}
-                  />
-                )}
-              </ul>
+            <div class="w-100 text-center">
+              <h1 className="text-secondary">{name} (id:{id})</h1>
+            </div>
+            <div class="d-flex justify-content-center">
+              <form onSubmit={createTodo}>
+                <label className="text-primary">Title:
+                  <input className="form-control" type="text" value={newTodoName} onChange={(e) => setNewTodoName(e.target.value)} />
+                </label>
+                <br />
+                <label className="text-primary">Content:
+                  <textarea className="form-control" type="text" value={newTodoContent} onChange={(e) => setNewTodoContent(e.target.value)} />
+                </label>
+                <br />
+                <div className="w-100 text-center mt-4">
+                  <button type="submit" className="btn btn-secondary"><span className="text-primary">CREATE</span></button>
+                </div>
+              </form>
+            </div>
+            <ul class="mt-5">
+              {todos.map((todo) =>
+                <ListItem
+                  key={todo.id.toString()}
+                  todo={todo}
+                  edit={editItemHandler}
+                  delete={deleteTodo}
+                  editing={editItem}
+                  nameEditChange={todoNameEditChange}
+                  contentEditChange={todoContentEditChange}
+                />
+              )}
             </ul>
           </div>
         </div>
