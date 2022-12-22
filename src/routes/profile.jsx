@@ -106,10 +106,10 @@ export default function Profile() {
       <div className="col-12 d-flex justify-content-around">
         <div>
           <div>
-            <div class="w-100 text-center">
+            <div className="w-100 text-center">
               <h1 className="text-secondary">{name} (id:{id})</h1>
             </div>
-            <div class="d-flex justify-content-center">
+            <div className="d-flex justify-content-center">
               <form onSubmit={createTodo}>
                 <label className="text-primary">Title:
                   <input className="form-control" type="text" value={newTodoName} onChange={(e) => setNewTodoName(e.target.value)} />
@@ -120,11 +120,11 @@ export default function Profile() {
                 </label>
                 <br />
                 <div className="w-100 text-center mt-4">
-                  <button type="submit" className="btn btn-secondary"><span className="text-primary">CREATE</span></button>
+                  <button type="submit" className="btn btn-primary text-uppercase">create</button>
                 </div>
               </form>
             </div>
-            <ul class="mt-5">
+            <ul className="mt-5">
               {todos.map((todo) =>
                 <ListItem
                   key={todo.id.toString()}

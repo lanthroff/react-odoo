@@ -1,34 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import {
-  Route, Routes, unstable_HistoryRouter as HistoryRouter
-} from "react-router-dom";
-
-import history from "./history.jsx";
-
-import Root from "./routes/root.jsx";
-import NotFound from "./routes/not-found.jsx";
-import ErrorPage from "./routes/error.jsx";
-import Login from "./routes/login.jsx";
-import Profile from "./routes/profile.jsx";
-import Home from "./routes/home.jsx";
+import App from "./app";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HistoryRouter history={history}>
-      <Routes>
-        <Route path="/"
-          element={<Root />}
-          errorElement={<ErrorPage />}>
-          <Route index={true} element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </HistoryRouter>
+    <App />
   </React.StrictMode>
 );
 

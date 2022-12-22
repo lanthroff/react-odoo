@@ -37,7 +37,11 @@ export default function Root() {
               </div>
             </nav>
           </div>
+        </div>
+        <div className="row">
           <Outlet context={[setIsLogin]} />
+        </div>
+        <div className="row">
           <div className="col-12 mt-5 d-flex justify-content-center bg-primary"><h1 className="text-secondary text-uppercase">footer</h1></div>
         </div>
       </div>
